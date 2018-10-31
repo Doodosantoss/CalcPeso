@@ -1,0 +1,89 @@
+import java.util.Scanner;
+
+public class exerc1 {
+
+    private String nome;
+    private double altura, peso;
+    private char sexo;
+
+    public exerc1() {
+        this.nome = nome;
+        this.altura = altura;
+        this.sexo = sexo;
+    }
+
+    public double getPeso() {
+        return peso;
+    }
+
+    public void setPeso(double peso) {
+        this.peso = peso;
+    }
+
+    public double getAltura() {
+        return altura;
+    }
+
+    public void setAltura(double altura) {
+        this.altura = altura;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public char getSexo() {
+        return sexo;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setSexo(char sexo) {
+        this.sexo = sexo;
+    }
+
+    public void DadosAluno() {
+        Scanner entrada1 = new Scanner(System.in);
+        System.out.println("Digite seu nome: ");
+        nome = entrada1.nextLine();
+        System.out.println("Digite seu sexo: (M/F) ");
+        sexo = entrada1.next().charAt(0);
+        System.out.println("Digite sua altura: ");
+        altura = entrada1.nextDouble();
+        System.out.println("Digite seu peso: ");
+        peso = entrada1.nextDouble();
+
+    }
+
+    public void CalcularPeso() {
+        DadosAluno();
+        double pesoIdealM = ((72.7 * altura) - 58);
+        switch (sexo) {
+            case 'M':
+                if (peso == pesoIdealM) {
+                    System.out.println("Peso Ideal");
+
+                } else if (peso > pesoIdealM) {
+                    System.out.println("Acima do peso");
+                } else {
+                    System.out.println("Abaixo do peso");
+                }
+                break;
+            case 'F':
+                double pesoIdealF = ((62.1 * altura) - 44.7);
+                if (peso == pesoIdealF) {
+                    System.out.println("Peso Ideal");
+                } else if (peso > pesoIdealF) {
+                    System.out.println("Acima do Peso");
+                } else {
+                    System.out.println("Abaixo do Peso");
+                }
+                break;
+            default:
+                System.out.println("Dados Inválidos");
+        }
+    }
+
+}
